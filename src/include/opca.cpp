@@ -1,11 +1,7 @@
-#pragma once
 
 #include "opca.h"
 
-Opca::Opca() {}
-Opca::~Opca() {}
-
-void Opca::opca(const cv::Mat& src, cv::Mat& dst)
+void opca(const cv::Mat& src, cv::Mat& dst)
 {
     src.copyTo(dst);
 
@@ -46,11 +42,9 @@ void Opca::opca(const cv::Mat& src, cv::Mat& dst)
             }
         }
     }
-
-    return;
 }
 
-bool Opca::isFirstCondition(const cv::Mat& src, int y, int x)
+static bool isFirstCondition(const cv::Mat& src, int y, int x)
 {
     cv::Point2i points[8] = { cv::Point2i(x, y - 1),
                               cv::Point2i(x + 1, y - 1),
@@ -69,7 +63,7 @@ bool Opca::isFirstCondition(const cv::Mat& src, int y, int x)
     return (sum >= 2 && sum <= 6);
 }
 
-bool Opca::isSecondCondition(const cv::Mat& src, int y, int x)
+static bool isSecondCondition(const cv::Mat& src, int y, int x)
 {
     cv::Point2i points[8] = { cv::Point2i(x, y - 1),
                               cv::Point2i(x + 1, y - 1),
@@ -91,7 +85,7 @@ bool Opca::isSecondCondition(const cv::Mat& src, int y, int x)
     return (sum == 2);
 }
 
-bool Opca::isThirdCondition(const cv::Mat& src, int y, int x)
+static bool isThirdCondition(const cv::Mat& src, int y, int x)
 {
     cv::Point2i points[6] = { cv::Point2i(x, y - 1),
                               cv::Point2i(x + 1, y),
@@ -113,7 +107,7 @@ bool Opca::isThirdCondition(const cv::Mat& src, int y, int x)
     return !((parts[1] && parts[3] && parts[4]) || (parts[2] && parts[0] && parts[5]));
 }
 
-bool Opca::isLastCondition(const cv::Mat& src, int y, int x)
+static bool isLastCondition(const cv::Mat& src, int y, int x)
 {
     cv::Point2i points[8] = { cv::Point2i(x, y - 1),
                               cv::Point2i(x + 1, y - 1),
@@ -131,12 +125,11 @@ bool Opca::isLastCondition(const cv::Mat& src, int y, int x)
         bool parts[3] = { 0 };
 
         int indexOne = 2 * i + 1;
-        parts[0] = (src.at<uint8_t>(points[indexOne]) / UINT8_MAX) == 0;
-
         int indexTwo = ((2 * (i + 1) + 1) - 2 + 3) % 8 + 2;
-        parts[1] = (src.at<uint8_t>(points[indexTwo - 2]) / UINT8_MAX) == 1;
-
         int indexThree = ((2 * (i + 1) + 1) - 2 + 5) % 8 + 2;
+
+        parts[0] = (src.at<uint8_t>(points[indexOne]) / UINT8_MAX) == 0;
+        parts[1] = (src.at<uint8_t>(points[indexTwo - 2]) / UINT8_MAX) == 1;
         parts[2] = (src.at<uint8_t>(points[indexThree - 2]) / UINT8_MAX) == 1;
 
         if (parts[0] && parts[1] && parts[2])
