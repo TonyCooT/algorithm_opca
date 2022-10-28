@@ -10,14 +10,14 @@
 
 ## Примеры работы / Examples
 
-![](https://github.com/TonyCooT/Algorithm_OPCA/blob/main/dataset/batman.jpg)
-![](https://github.com/TonyCooT/Algorithm_OPCA/blob/main/images/batmanS.jpg)
+![](https://github.com/TonyCooT/Algorithm_OPCA/blob/main/.images/batman_src.jpg)
+![](https://github.com/TonyCooT/Algorithm_OPCA/blob/main/.images/batman_dst.jpg)
 
-![](https://github.com/TonyCooT/Algorithm_OPCA/blob/main/dataset/csgo.jpg)
-![](https://github.com/TonyCooT/Algorithm_OPCA/blob/main/images/csgoS.jpg)
+![](https://github.com/TonyCooT/Algorithm_OPCA/blob/main/.images/csgo_src.jpg)
+![](https://github.com/TonyCooT/Algorithm_OPCA/blob/main/.images/csgo_dst.jpg)
 
-![](https://github.com/TonyCooT/Algorithm_OPCA/blob/main/dataset/discord.jpg)
-![](https://github.com/TonyCooT/Algorithm_OPCA/blob/main/images/discordS.jpg)
+![](https://github.com/TonyCooT/Algorithm_OPCA/blob/main/.images/discord_src.jpg)
+![](https://github.com/TonyCooT/Algorithm_OPCA/blob/main/.images/discord_dst.jpg)
 
 ## Литературные источники / References
 
